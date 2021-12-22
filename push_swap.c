@@ -6,7 +6,7 @@
 /*   By: mannouao <mannouao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:58:28 by mannouao          #+#    #+#             */
-/*   Updated: 2021/12/21 08:49:45 by mannouao         ###   ########.fr       */
+/*   Updated: 2021/12/21 13:49:00 by mannouao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	set_all(t_data *data, char **av, int ac)
 
 int	main(int ac, char **av)
 {
- 	t_data	data;
+	t_data	data;
 
 	if (ac < 2)
 		exit(1);

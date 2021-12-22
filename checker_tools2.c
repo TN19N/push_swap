@@ -6,11 +6,33 @@
 /*   By: mannouao <mannouao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 07:46:25 by mannouao          #+#    #+#             */
-/*   Updated: 2021/12/21 08:55:19 by mannouao         ###   ########.fr       */
+/*   Updated: 2021/12/21 13:41:50 by mannouao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+char	*ft_strdup(const char *s)
+{
+	char	*ptr;
+	int		i;
+
+	i = ft_strlen(s);
+	ptr = malloc((i + 1) * sizeof(*ptr));
+	i = 0;
+	if (ptr == NULL)
+		return (0);
+	else
+	{
+		while (s[i])
+		{
+			ptr[i] = s[i];
+			i++;
+		}
+		ptr[i] = '\0';
+		return (ptr);
+	}
+}
 
 void	increment_a2(t_data *data)
 {

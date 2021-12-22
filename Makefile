@@ -6,7 +6,7 @@
 #    By: mannouao <mannouao@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 13:04:38 by mannouao          #+#    #+#              #
-#    Updated: 2021/12/21 08:53:10 by mannouao         ###   ########.fr        #
+#    Updated: 2021/12/21 15:36:37 by mannouao         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,7 @@ SRCS_BONUS = checker.c\
 			checker_tools.c\
 			checker_tools2.c\
 			checker_operations.c\
-			ft_split.c\
-			ft_atoi.c
+			ft_split.c
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 CC = gcc

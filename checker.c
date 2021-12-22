@@ -6,7 +6,7 @@
 /*   By: mannouao <mannouao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 20:21:34 by mannouao          #+#    #+#             */
-/*   Updated: 2021/12/21 09:01:43 by mannouao         ###   ########.fr       */
+/*   Updated: 2021/12/21 15:31:25 by mannouao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	check_if_sorted2(t_data *data)
 {
-	int  i;
+	int	i;
 
 	i = -1;
 	while (++i < data->len_a - 1)
@@ -70,11 +70,38 @@ void	start_check(t_data *data)
 	check_if_sorted2(data);
 }
 
+void	ft_read(t_data *data)
+{
+	char	*tmp;
+	int		i;
+
+	i = 0;
+	while (1)
+	{
+		tmp = get_next_line(0);
+		i++;
+		if (!tmp)
+			break ;
+		data->tmp = ft_strjoin(data->tmp, tmp);
+		free(tmp);
+		if (!data->tmp)
+			free_and_error(data, 0);
+	}
+	if (!data->tmp)
+	{
+		write(1, "KO\n", 3);
+		free_and_error(data, 1);
+	}
+	data->oper = ft_split(data->tmp, '\n');
+	free(data->tmp);
+	if (!data->oper)
+		free_and_error(data, 0);
+	start_check(data);
+}
+
 int	main(int ac, char **av)
 {
 	t_data	data;
-	char	*tmp1;
-	char 	*tmp2;
 
 	if (ac < 2)
 		exit(1);
@@ -86,21 +113,6 @@ int	main(int ac, char **av)
 		free_and_error(&data, 0);
 	set_all(&data, av, ac);
 	check_if_sorted(&data);
-	tmp2 = NULL;
-	while (1)
-	{
-		tmp1 = get_next_line(0);
-		if (!tmp1)
-			break ;
-		tmp2 = ft_strjoin(tmp2, tmp1);
-		free(tmp1);
-		if (!tmp2)
-			free_and_error(&data, 0);
-	}
-	data.oper = ft_split(tmp2, '\n');
-	free(tmp2);
-	if (!data.oper)
-		free_and_error(&data, 0);
-	start_check(&data);
+	ft_read(&data);
 	return (0);
 }

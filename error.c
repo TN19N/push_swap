@@ -6,7 +6,7 @@
 /*   By: mannouao <mannouao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:03:15 by mannouao          #+#    #+#             */
-/*   Updated: 2021/12/21 07:48:43 by mannouao         ###   ########.fr       */
+/*   Updated: 2021/12/21 15:39:17 by mannouao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,4 @@ void	free_for_tmps(char *tmp1, char *tmp2)
 		free(tmp1);
 	if (tmp2)
 		free(tmp2);
-}
-
-void	free_oper_and_error(t_data *data, char **oper, int j)
-{
-	int i;
-
-	i = 0;
-	while (oper[i])
-	{
-		free(oper[i]);
-		i++;
-	}
-	free(oper);
-	free_and_error(data, j);
 }
